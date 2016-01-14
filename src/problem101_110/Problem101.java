@@ -6,6 +6,6 @@ public class Problem101 {
 	}
 	
 	public static int[] getOP(int args[]) {
-		
+		return null;
 	}
 }

@@ -13,7 +13,7 @@ import euler.util.GCF;
  */
 
 /**
- * @author Josh Wight
+ * @author Pharaun
  *
  */
 public class Problem73 {
@@ -22,24 +22,27 @@ public class Problem73 {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-
-		double a = 1.0 / 3.0;
-		double b = 1.0 / 2.0;
-		int n = 0;
-		for (int i = 5; i <= 12000; i++) {
-			for (int j = (i / 3) - 1; j <= (i / 2) + 1; j++) {
-				if (GCF.gcf(j, i) == 1) {
-					double r = (double) j / (double) i;
-
-					if (r > a && r < b) {
-						System.out.println(j + " / " + i);
-						n++;
+		int num = 0;
+		
+		for(int d = 2; d<=12000; d++) {
+			System.out.println(d);
+			for(int n=(d/3)+1; (2*n)<d; n++) {
+				
+				boolean valid = true;
+				
+				//if a fraction is reducible, we already saw it
+				for(int f=2; f<=n; f++) {
+					if(n%f==0 && d%f==0) {
+						valid=false;
+						break;
 					}
 				}
+				if(valid) {
+					num++;
+				}				
 			}
 		}
-		System.out.println(n + "");
-
+		System.out.println(num);
 	}
 
 }
